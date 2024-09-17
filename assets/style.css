@@ -30,3 +30,15 @@ body{
   padding: 8px 15px;
   cursor: pointer;
 }
+@media(min-width:0px)  and (max-width: 430px){
+  .move-button{
+    background-color: transparent;
+    border: 3px solid white;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+ 
+}
