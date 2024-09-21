@@ -42,6 +42,33 @@ function autoPlay(){
 }
 }
 
+document.querySelector('.js-rock-button')
+.addEventListener('click',()=>{
+  playGame('rock');
+});
+
+document.querySelector('.js-paper-button').addEventListener('click',()=>{
+  playGame('paper');
+});
+
+document.querySelector('.js-scissors-button').addEventListener('click',()=>{
+  playGame('scissors');
+});
+
+document.body.addEventListener('keydown',(event)=>{
+  
+  if(event.key==='r' | event.key==='R'){
+    playGame('rock');
+  }
+  else if(event.key==='p' | event.key==='P'){
+    playGame('paper');
+  }
+  if(event.key==='s' | event.key==='S'){
+    playGame('scissors');
+  }
+});
+
+
 function playGame(playerMove){
   
   const computerMove= pickComputerMove();
