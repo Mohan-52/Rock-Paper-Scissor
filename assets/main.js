@@ -27,7 +27,7 @@ updateScoreElement();
 let isAutoPlay=false;
 let intervalId;
 
-/* function autoPlay(){
+ function autoPlay(){
   if(!isAutoPlay){
   intervalId=setInterval(()=>{
     
@@ -40,22 +40,11 @@ let intervalId;
   clearInterval(intervalId);
   isAutoPlay=false;
 }
-} */
+}
 const autoPlayButtonElement=document.querySelector(".auto-play");
 
 autoPlayButtonElement.addEventListener("click",()=>{
-  if(!isAutoPlay){
-    intervalId=setInterval(()=>{
-      
-      const playerMove=pickComputerMove();
-      playGame(playerMove);
-  
-    },1000);
-    isAutoPlay=true;
-  }else {
-    clearInterval(intervalId);
-    isAutoPlay=false;
-  }
+  autoPlay();
 
 })
 
