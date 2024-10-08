@@ -30,6 +30,17 @@ body{
   padding: 8px 15px;
   cursor: pointer;
 }
+.yes-no{
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+  margin-right:5px ;
+}
+.main-div{
+  text-align: center;
+}
 @media(min-width:0px)  and (max-width: 430px){
   .move-button{
     background-color: transparent;

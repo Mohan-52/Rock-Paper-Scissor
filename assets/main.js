@@ -33,15 +33,47 @@ let intervalId;
     
     const playerMove=pickComputerMove();
     playGame(playerMove);
+    autoPlayButtonElement.innerHTML="Stop Playing";
 
   },1000);
   isAutoPlay=true;
 }else {
   clearInterval(intervalId);
   isAutoPlay=false;
+  autoPlayButtonElement.innerHTML="Auto Play";
 }
 }
+
+
 const autoPlayButtonElement=document.querySelector(".auto-play");
+const resetButtonElement=document.querySelector(".reset-score");
+
+
+function resetScore() {
+  const resetParaElement=document.querySelector(".js-reset-para");
+  resetParaElement.innerHTML=` Are you sure? <button class="yes-no js-yes">Yes</button><button class="yes-no js-no">No</button> `
+  document.querySelector('.js-yes').addEventListener('click',()=>{
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+  resetParaElement.innerHTML="";
+  });
+
+  document.querySelector('.js-no').addEventListener('click',()=>{
+    resetParaElement.innerHTML="";
+  });
+
+}
+ 
+ 
+
+
+
+resetButtonElement.addEventListener('click',()=>{
+  resetScore();
+});
 
 autoPlayButtonElement.addEventListener("click",()=>{
   autoPlay();
@@ -69,9 +101,16 @@ document.body.addEventListener('keydown',(event)=>{
   else if(event.key==='p' | event.key==='P'){
     playGame('paper');
   }
-  if(event.key==='s' | event.key==='S'){
+  else if(event.key==='s' | event.key==='S'){
     playGame('scissors');
   }
+  else  if(event.key==='a' | event.key==='A'){
+    autoPlay();
+  }
+ else if(event.key==='Backspace'){
+    resetScore();
+  }
+ 
 });
 
 
